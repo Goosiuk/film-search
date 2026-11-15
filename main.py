@@ -140,10 +140,10 @@ class Search(QWidget):
         self.duration = self.button_duration.text()
 
     def out(self):
-        self.name = self.button_name.text()
-        self.genre = self.button_genre.text()
-        self.year = self.button_year.text()
-        self.duration = self.button_duration.text()
+        self.name = self.button_name.text().strip()
+        self.genre = self.button_genre.text().strip()
+        self.year = self.button_year.text().strip()
+        self.duration = self.button_duration.text().strip()
         return self.name, self.genre, self.year, self.duration
 
     def retranslateui(self):
