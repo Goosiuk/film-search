@@ -304,6 +304,7 @@ class Table(QWidget):
         edit_id = QLineEdit(self)
         edit_id.move(140, 400)
         edit_id.resize(55, 30)
+        edit_id.returnPressed.connect(lambda: self.addbt(edit_id))
 
         label_id = QLabel(self)
         label_id.setText('Введите id фильма:')
