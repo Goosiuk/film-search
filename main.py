@@ -132,6 +132,9 @@ class Search(QWidget):
         self.label_genre.setGeometry(QtCore.QRect(30, 30, 131, 31))
         self.label_genre.setObjectName("label_genre")
 
+        for field in (self.button_name, self.button_genre, self.button_year, self.button_duration):
+            field.returnPressed.connect(self.search_bd)
+
         self.retranslateui()
         QtCore.QMetaObject.connectSlotsByName(self)
         self.name = self.button_name.text()
