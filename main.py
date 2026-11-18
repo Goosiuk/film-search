@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import (
     QLabel,
     QLineEdit,
     QMainWindow,
+    QMessageBox,
     QPushButton,
     QVBoxLayout,
     QWidget,
@@ -167,6 +168,9 @@ class Search(QWidget):
     def search_bd(self):
 
         name, genre, year, duration = self.out()
+        if not any((name, genre, year, duration)):
+            QMessageBox.information(self, "Поиск фильмов", "Введите хотя бы одно условие поиска.")
+            return
         con = sqlite3.connect(BASE_DIR / "films_db.sqlite")
         cur = con.cursor()
         if name != '':
